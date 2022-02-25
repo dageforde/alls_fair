@@ -3,7 +3,7 @@ from itertools import combinations
 from datetime import datetime, timedelta
 
 # load project json
-f = open('test.json')
+f = open('project.json')
 project_data = json.load(f)
 # for i in project_data['project']:
 #     print(i)
@@ -15,7 +15,6 @@ project_start_date = project_data['project']['start_date']
 sprint_days = project_data['project']['sprint_days']  
 # dev_pairs = [",".join(map(str, combo)) for combo in combinations(devs, 2)] # list of possible 1:1 pairing combinations; 
 # print(len(dev_pairs)) # 5 devs should yield 10 pairs
-print(project_data['project'])
 
 # function to create team rotations
 def Rotate(l1,num):
@@ -55,31 +54,19 @@ for r in rotations: #for every rotated team
     sprint_num+=1
     sprint_start_obj = sprint_start_obj + timedelta(days=7)
 project_dict = {'project':all_sprints}
-# print(project_dict)
-
-def saveData():
-    import csv
-    with open('test.csv', 'w') as f:
-        for key in project_dict.keys():
-            f.write("%s,%s\n"%(key,project_dict[key]))
-
 
 
 import json
+import pprint
 s = json.dumps(project_dict)
 d = json.loads(s)
-print(type(d))
-# for i in d['projects']:
-#     print(i)
-# # json_object = json.dumps(project_dict, indent = 4) 
-# print(json_object)
+for i in range(0,len(d['project'])):
+    pprint.pprint(d['project'][i])
+    print('*********************')
 
 
-#write to calendar 
-#write to data store
-#function to enter date and see pairs that day
-# print(type(project_dict['project']))
-# def printSchedule():
-#     for sprint in project_dict['project']:
-
-    # print(project_dict['project'][0])
+# persist data in csv
+import csv
+with open('test.csv', 'w') as f:
+    for i in range(0,len(d['project'])):
+        f.write("%s,%s\n"%(i,d['project'][i]))
