@@ -34,6 +34,7 @@ Rotate(devs,nsprints)
 sprint_assigns = dict() # dict of pairs & solo for each sprint
 all_sprints = list()
 sprint_num = 1
+sprint_start = project_start_date
 for r in rotations: #for every rotated team
     assn_list = list() # list to store the pair assignments
     chunk_size = 2 # chunk the list by elements of 2
@@ -49,22 +50,37 @@ for r in rotations: #for every rotated team
         assn_list.append(pair_dict)
         pair_assn_dict = {'pairs':assn_list}
         sprint={sprint_title : pair_assn_dict,
-                'start_date' : project_start_date}
+                'start_date' : sprint_start,
+                'days':sprint_days}
         pair_count+=1 
     # sprint_pairs.append(assn_list)
     # sprint_assigns.update(sprint_title)
     all_sprints.append(sprint)
     sprint_num+=1
+    sprint_start = project_start_date + timedelta(days=7)
 # sprint_dict = {'project'+n:sprint_pairs}
 project_dict = {'project':all_sprints}
 # print(project_dict)
+json_object = json.dumps(project_dict, indent = 4) 
+print(json_object)
+
+
+
+
+
+
+
+
+
+
+
 
 
 # new_date = current_date + timedelta(weeks=4)
 
-res = project_start_date + timedelta(days=7)
-print(project_start_date)
-print(res)
+# res = project_start_date + timedelta(days=7)
+# print(project_start_date)
+# print(res)
 
 # print(chunked_list[0])
 # print(sprint_pairs)
