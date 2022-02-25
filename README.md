@@ -1,6 +1,10 @@
 # Overview
 This is a script for generating a pair rotating schedule for a team of any size working through a project consisting of any number of sprints, given a .json file structured like the one included in with this project
-
+# directory contents
+ - pairing.py
+ - project.json
+ -README.md
+ 
 # Requirements
     * Python 3.10.2
 
