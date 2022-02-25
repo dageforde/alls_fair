@@ -3,7 +3,7 @@ from itertools import combinations
 from datetime import datetime, timedelta
 
 # load project json
-f = open('project_copy.json')
+f = open('test.json')
 project_data = json.load(f)
 # for i in project_data['project']:
 #     print(i)
@@ -60,10 +60,10 @@ project_dict = {'project':all_sprints}
 
 
 
-# import json
-# s = json.dumps(project_dict)
-# d = json.loads(s)
-# print(d)
+import json
+s = json.dumps(project_dict)
+d = json.loads(s)
+print(d)
 # # json_object = json.dumps(project_dict, indent = 4) 
 # print(json_object)
 
