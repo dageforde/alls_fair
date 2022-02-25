@@ -27,7 +27,6 @@ rotations=list() # empty list to store team rotations
 Rotate(devs,nsprints)
 
 
-
 # function to assign pairs, solo devs per sprint
 
 sprint_assigns = dict() # dict of pairs & solo for each sprint
@@ -58,12 +57,20 @@ for r in rotations: #for every rotated team
 project_dict = {'project':all_sprints}
 # print(project_dict)
 
+def saveData():
+    import csv
+    with open('test.csv', 'w') as f:
+        for key in project_dict.keys():
+            f.write("%s,%s\n"%(key,project_dict[key]))
+
 
 
 import json
 s = json.dumps(project_dict)
 d = json.loads(s)
-print(d)
+print(type(d))
+# for i in d['projects']:
+#     print(i)
 # # json_object = json.dumps(project_dict, indent = 4) 
 # print(json_object)
 
