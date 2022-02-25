@@ -1,0 +1,9 @@
+{"project":{"dev_num": 5,
+    "dev_names": ["a", "b", "c", "d", "e", "f"],
+    "num_sprints": 15,
+    "sprint_days": 5,
+    "project_hours": 480,
+    "sprint_hours": 40,
+    "day_hours": 8,
+    "start_date": "May 23, 2022",
+    "end_date": "May 20, 2022"}}
